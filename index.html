@@ -568,7 +568,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Male Participation Rate (%)",
         width: "container", height: 350,
-        data: { url: "data/age_gender_sport_matrix.csv", format: { type: "csv" } },
+        data: { url: "./data/age_gender_sport_matrix.csv", format: { type: "csv" } },
         mark: "rect",
         encoding: {
             x: { field: "age_group", type: "ordinal", title: "Age Group", sort: ["5-14", "15-24", "25-34", "35-44", "45-54", "55+"] },
@@ -588,7 +588,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Female Participation Rate (%)",
         width: "container", height: 350,
-        data: { url: "data/age_gender_sport_matrix.csv", format: { type: "csv" } },
+        data: { url: "./data/age_gender_sport_matrix.csv", format: { type: "csv" } },
         mark: "rect",
         encoding: {
             x: { field: "age_group", type: "ordinal", title: "Age Group", sort: ["5-14", "15-24", "25-34", "35-44", "45-54", "55+"] },
@@ -608,7 +608,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Gender Participation Gap (Ages 5-14)",
         width: "container", height: 350,
-        data: { url: "data/age_gender_sport_matrix.csv", format: { type: "csv" } },
+        data: { url: "./data/age_gender_sport_matrix.csv", format: { type: "csv" } },
         transform: [
             { filter: "datum.age_group=='5-14'" },
             { calculate: "datum.gender=='Male' ? datum.participation_index : -datum.participation_index", as: "signed_value" }
@@ -632,7 +632,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "AFL Participation by Age Group and Gender",
         width: "container", height: 400,
-        data: { url: "data/age_gender_sport_matrix.csv", format: { type: "csv" } },
+        data: { url: "./data/age_gender_sport_matrix.csv", format: { type: "csv" } },
         transform: [{ filter: "datum.sport=='AFL'" }],
         mark: { type: "bar", size: 20 },
         encoding: {
@@ -658,10 +658,10 @@
         //projection: { type: "albers", center: [134, -28], parallels: [-18, -36], scale: 500 },
         projection: { type: "albers", rotate: [132, 0, 0], center: [0, -30], parallels: [-18, -36]}
         //data: { url: "https://raw.githubusercontent.com/tonywr71/GeoJson-Data/master/australian-states.json", format: { type: "json", property: "features" } },
-        data: { url: "data/states.geojson",  format: { type: "geojson", property: "features" }},
+        data: { url: "./data/states.geojson",  format: { type: "geojson", property: "features" }},
         transform: [{
             lookup: "properties.STATE_NAME",
-            from: { data: { url: "data/dominant_sport_by_state.csv", format: { type: "csv" } }, key: "state", fields: ["sport", "participants", "popularity_index"] }
+            from: { data: { url: "./data/dominant_sport_by_state.csv", format: { type: "csv" } }, key: "state", fields: ["sport", "participants", "popularity_index"] }
         }, { calculate: "datum.sport==null?'No Data':datum.sport", as: "sport_display" }],
         mark: { type: "geoshape", stroke: "white", strokeWidth: 1.5 },
         encoding: {
@@ -685,7 +685,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Sport Popularity Share by State",
         width: "container", height: 450,
-        data: { url: "data/state_sport_popularity.csv", format: { type: "csv" } },
+        data: { url: "./data/state_sport_popularity.csv", format: { type: "csv" } },
         mark: "bar",
         encoding: {
             y: { field: "state", type: "nominal", title: "State", sort: "-x" },
@@ -705,7 +705,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Attendance Trends by Sport (2019-2025)",
         width: "container", height: 400,
-        data: { url: "data/attendance_streamgraph.csv", format: { type: "csv" } },
+        data: { url: "./data/attendance_streamgraph.csv", format: { type: "csv" } },
         mark: "area",
         encoding: {
             x: { field: "year", type: "temporal", title: "Year", axis: { format: "d" } },
@@ -725,7 +725,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Venue Capacity Utilisation",
         width: "container", height: 400,
-        data: { url: "data/venue_capacity_utilisation.csv", format: { type: "csv" } },
+        data: { url: "./data/venue_capacity_utilisation.csv", format: { type: "csv" } },
         layer: [
             { mark: { type: "rule", color: "#ddd" }, encoding: { x: { field: "avg_utilisation_percent", type: "quantitative", title: "Utilisation Rate (%)" }, y: { field: "venue", type: "nominal", sort: "-avg_utilisation_percent" } } },
             { mark: { type: "point", filled: true, size: 120, color: "#1976D2" }, encoding: { x: { field: "avg_utilisation_percent", type: "quantitative" }, y: { field: "venue", type: "nominal", sort: "-avg_utilisation_percent" } } }
@@ -748,7 +748,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Funding (AUD Million)",
         width: "container", height: 350,
-        data: { url: "data/funding_vs_medals.csv", format: { type: "csv" } },
+        data: { url: "./data/funding_vs_medals.csv", format: { type: "csv" } },
         mark: { type: "line", point: { filled: true, size: 80 }, strokeWidth: 2.5 },
         encoding: {
             x: { field: "year", type: "ordinal", title: "Year" },
@@ -768,7 +768,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Major Event Medals",
         width: "container", height: 350,
-        data: { url: "data/funding_vs_medals.csv", format: { type: "csv" } },
+        data: { url: "./data/funding_vs_medals.csv", format: { type: "csv" } },
         mark: { type: "line", point: { filled: true, size: 80 }, strokeWidth: 2.5 },
         encoding: {
             x: { field: "year", type: "ordinal", title: "Year" },
@@ -788,7 +788,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "2025: Funding vs Medals",
         width: "container", height: 400,
-        data: { url: "data/funding_vs_medals.csv", format: { type: "csv" } },
+        data: { url: "./data/funding_vs_medals.csv", format: { type: "csv" } },
         transform: [{ filter: "datum.year==2025" }],
         mark: "circle",
         encoding: {
@@ -810,7 +810,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Funding Efficiency: Medals per $10M (2025)",
         width: "container", height: 350,
-        data: { url: "data/funding_vs_medals.csv", format: { type: "csv" } },
+        data: { url: "./data/funding_vs_medals.csv", format: { type: "csv" } },
         transform: [
             { filter: "datum.year==2025" },
             { calculate: "datum.major_event_medals / datum.funding_million_aud * 10", as: "medals_per_10m" }
@@ -835,7 +835,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Fan Conversion Funnel",
         width: "container", height: 350,
-        data: { url: "data/sports_fan_funnel.csv", format: { type: "csv" } },
+        data: { url: "./data/sports_fan_funnel.csv", format: { type: "csv" } },
         mark: "bar",
         encoding: {
             y: { field: "stage", type: "nominal", title: "Stage", sort: { field: "percent_of_audience", order: "descending" } },
@@ -855,7 +855,7 @@
         $schema: "https://vega.github.io/schema/vega-lite/v5.json",
         title: "Participation Pathways: Entry to Outcome",
         width: "container", height: 400,
-        data: { url: "data/participation_pathways.csv", format: { type: "csv" } },
+        data: { url: "./data/participation_pathways.csv", format: { type: "csv" } },
         mark: "bar",
         encoding: {
             x: { field: "entry_point", type: "nominal", title: "Entry Point", axis: { labelAngle: -20 } },
