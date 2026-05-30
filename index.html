@@ -496,7 +496,7 @@
         title: "Dominant Sport by State",
         width: "container", height: 450,
         //projection: { type: "mercator", center: [134, -28], scale: 500 },
-        projection: { type: "albers", rotate: [-133, 0, 0], center: [0, -25], parallels: [-18, -36], scale: 900},
+        projection: { type: "albers", rotate: [-133, 0, 0], center: [0, -25], parallels: [-18, -36], scale: 600},
         data: { url: "./data/states.geojson", format: { type: "json", property: "features" } },
         transform: [{
             lookup: "properties.STATE_NAME",
